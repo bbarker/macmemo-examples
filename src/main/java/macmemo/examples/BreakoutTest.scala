@@ -15,8 +15,12 @@ object BreakoutTest {
     val myInts = Seq(1, 2, 3, 4, 5)
 
     //FIXME: currently @memoize breaks type inference for breakout)
+//    @memoize(maxSize = 10, expiresAfter = 12 hours)
+//    def getAsList(intsIn: Iterable[Int]): List[Int] = intsIn.map { c => c }(breakOut)
+
     @memoize(maxSize = 10, expiresAfter = 12 hours)
-    def getAsList(intsIn: Iterable[Int]): List[Int] = intsIn.map { c => c }(breakOut)
+    def getAsList(intsIn: Iterable[Int]): List[Int] = intsIn.map { c => c }(breakOut): List[Int]
+
 
     getAsList(myInts).foreach(ii => println(ii))
 
